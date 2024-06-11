@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: overtime-manage
+  datasource:
+    url:
+    username:
+    password:
