@@ -14,6 +14,6 @@ public class SalaryMapperTest extends AbstractMapperTest {
 
         Salary salary = SalaryMapper.MAPPER.mapToSalary(dto);
 
-        assertEqualsToFile("/SalaryMapperTest/createSalaryRequestDto_mapToSalary.json", salary);
+        assertEqualsToFile("/SalaryMapperTest/salary_mapToSalary.json", salary);
     }
 }
