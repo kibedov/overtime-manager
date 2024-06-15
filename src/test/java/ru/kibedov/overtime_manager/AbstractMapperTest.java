@@ -7,6 +7,7 @@ import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import lombok.SneakyThrows;
 import org.testcontainers.shaded.org.apache.commons.io.IOUtils;
@@ -17,31 +18,32 @@ import java.text.SimpleDateFormat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public abstract class AbstractMapperTest {
-    private final ObjectMapper objectMapper;
+    private final JsonMapper jsonMapper;
 
     protected AbstractMapperTest() {
-        objectMapper = new ObjectMapper();
-        objectMapper.registerModule(new JavaTimeModule());
-        objectMapper.setDateFormat(new SimpleDateFormat("MM-dd-yyyy"));
-        objectMapper.findAndRegisterModules();
-        objectMapper.configure(MapperFeature.SORT_PROPERTIES_ALPHABETICALLY, true);
-        objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
-        objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
-        objectMapper.setDefaultPrettyPrinter(new MyDefaultPrettyPrinter());
+        this.jsonMapper = JsonMapper.builder()
+                .configure(MapperFeature.SORT_PROPERTIES_ALPHABETICALLY, true)
+                .addModule(new JavaTimeModule())
+                .defaultDateFormat(new SimpleDateFormat("MM-dd-yyyy"))
+                .serializationInclusion(JsonInclude.Include.NON_NULL)
+                .enable(SerializationFeature.INDENT_OUTPUT)
+                .defaultPrettyPrinter(new MyDefaultPrettyPrinter())
+                .configure(MapperFeature.SORT_PROPERTIES_ALPHABETICALLY, true)
+                .build();
     }
 
     @SneakyThrows
     protected <T> T readFromFile(String resourcePath, Class<T> clazz) {
         String resourceContent = IOUtils.toString(this.getClass().getResourceAsStream(resourcePath), "UTF-8");
 
-        return objectMapper.readValue(resourceContent, clazz);
+        return jsonMapper.readValue(resourceContent, clazz);
     }
 
     @SneakyThrows
     protected void assertEqualsToFile(String expectPath, Object actual) {
         String expectContent = IOUtils.toString(this.getClass().getResourceAsStream(expectPath), "UTF-8");
 
-        assertEquals(expectContent, objectMapper.writeValueAsString(actual));
+        assertEquals(expectContent, jsonMapper.writeValueAsString(actual));
     }
 
     private static class MyDefaultPrettyPrinter extends DefaultPrettyPrinter {
