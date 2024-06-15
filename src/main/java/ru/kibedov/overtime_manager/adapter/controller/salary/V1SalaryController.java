@@ -12,16 +12,14 @@ import ru.kibedov.overtime_manager.domain.Salary;
 @RequiredArgsConstructor
 public class V1SalaryController {
     private final SalaryService salaryService;
+    private final SalaryMapper salaryMapper;
 
     @PostMapping
     public SalaryResponseDto create(@RequestBody CreateSalaryRequestDto createSalaryRequestDto) {
-        //TODO START вынести в маппер класс
-        Salary salary = new Salary();
-        salary.setNet(createSalaryRequestDto.net());
-        salary.setStartedFrom(createSalaryRequestDto.startedFrom());
+        Salary salary = salaryMapper.MAPPER.mapToSalary(createSalaryRequestDto);
 
         salaryService.create(salary);
 
-        return new SalaryResponseDto(salary.getId(), salary.getNet(), salary.getStartedFrom());
+        return salaryMapper.MAPPER.mapToSalaryResponseDto(salary);
     }
 }
