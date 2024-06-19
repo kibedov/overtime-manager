@@ -5,3 +5,8 @@ spring:
     url: jdbc:postgresql://localhost:5432/overtime-manager
     username: root
     password: root
+
+settings:
+  vercel-app:
+    api:
+      url: https://holidays-calendar-ru.vercel.app/api
