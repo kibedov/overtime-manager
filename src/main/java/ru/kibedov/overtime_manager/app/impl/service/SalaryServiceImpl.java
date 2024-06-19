@@ -12,7 +12,7 @@ public class SalaryServiceImpl implements SalaryService {
     private final SalaryRepository salaryRepository;
 
     @Override
-    public Salary create(Salary salary) {
+    public Salary save(Salary salary) {
         return salaryRepository.save(salary);
     }
 }

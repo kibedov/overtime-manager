@@ -1,0 +1,5 @@
+CREATE TABLE overtime(
+    id BIGSERIAL PRIMARY KEY,
+    date DATE NOT NULL,
+    duration SMALLINT NOT NULL
+);

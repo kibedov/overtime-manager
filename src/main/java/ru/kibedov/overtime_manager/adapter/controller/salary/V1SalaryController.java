@@ -18,7 +18,7 @@ public class V1SalaryController {
     public SalaryResponseDto create(@RequestBody CreateSalaryRequestDto createSalaryRequestDto) {
         Salary salary = salaryMapper.MAPPER.mapToSalary(createSalaryRequestDto);
 
-        salaryService.create(salary);
+        salary = salaryService.save(salary);
 
         return salaryMapper.MAPPER.mapToSalaryResponseDto(salary);
     }
