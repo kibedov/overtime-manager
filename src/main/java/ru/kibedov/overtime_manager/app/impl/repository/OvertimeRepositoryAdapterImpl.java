@@ -9,7 +9,7 @@ import ru.kibedov.overtime_manager.domain.Overtime;
 
 @Repository
 @RequiredArgsConstructor
-public class OvertimeRepositoryJpaAdapterImpl implements OvertimeRepository {
+public class OvertimeRepositoryAdapterImpl implements OvertimeRepository {
     private final OvertimeJpaRepository adapterJpa;
 
     @Override

@@ -11,19 +11,19 @@ public class OvertimeMapperTest extends AbstractMapperTest {
 
     @Test
     void salaryMapper_mapToSalary() {
-        CreateOvertimeRequestDto dto = readFromFile("/OvertimeMapperTest/mapToOvertime/createOvertimeRequestDto.json", CreateOvertimeRequestDto.class);
+        CreateOvertimeRequestDto dto = readFromFile("/OvertimeMapperTest/MapToOvertime/CreateOvertimeRequestDto.json", CreateOvertimeRequestDto.class);
 
         Overtime overtime = OvertimeMapper.MAPPER.mapToOvertime(dto);
 
-        assertEqualsToFile("/OvertimeMapperTest/mapToOvertime/overtime.json", overtime);
+        assertEqualsToFile("/OvertimeMapperTest/MapToOvertime/Overtime.json", overtime);
     }
 
     @Test
     void salaryMapper_mapToSalaryResponseDto() {
-        Overtime overtime = readFromFile("/OvertimeMapperTest/mapToOvertimeResponseDto/overtime.json", Overtime.class);
+        Overtime overtime = readFromFile("/OvertimeMapperTest/MapToOvertimeResponseDto/Overtime.json", Overtime.class);
 
         OvertimeResponseDto responseDto = OvertimeMapper.MAPPER.mapToOvertimeResponseDto(overtime);
 
-        assertEqualsToFile("/OvertimeMapperTest/mapToOvertimeResponseDto/overtimeResponseDto.json", responseDto);
+        assertEqualsToFile("/OvertimeMapperTest/MapToOvertimeResponseDto/OvertimeResponseDto.json", responseDto);
     }
 }

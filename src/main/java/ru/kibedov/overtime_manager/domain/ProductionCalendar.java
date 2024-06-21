@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.Month;
+import java.util.List;
 
 @Getter
 @Setter
@@ -14,10 +14,8 @@ public class ProductionCalendar {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Short year;
-    @Enumerated(value = EnumType.STRING)
-    private Month month;
-    private Byte workingDays;
-    private Byte notWorkingDays;
-    private Byte shortDays;
-    private Short workingHours;
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "production_calendar_id")
+    private List<MonthInfo> months;
+
 }

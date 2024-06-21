@@ -12,6 +12,7 @@ public interface OvertimeMapper {
 
     OvertimeMapper MAPPER = Mappers.getMapper(OvertimeMapper.class);
 
+    @Mapping(target = "overtime.id", ignore = true)
     @Mapping(source = "duration", target = "duration")
     Overtime mapToOvertime(CreateOvertimeRequestDto createOvertimeRequestDto);
 

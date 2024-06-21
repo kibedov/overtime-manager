@@ -13,7 +13,8 @@ public interface SalaryMapper {
     SalaryMapper MAPPER = Mappers.getMapper(SalaryMapper.class);
 
     //TODO разобраться почему не мапит без анотации
-    @Mapping(target = "net", source = "createSalaryRequestDto.net")
+    @Mapping(target = "id", ignore = true)
+    @Mapping(source = "net", target = "net")
     Salary mapToSalary(CreateSalaryRequestDto createSalaryRequestDto);
 
     SalaryResponseDto mapToSalaryResponseDto(Salary salary);

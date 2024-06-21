@@ -1,0 +1,89 @@
+{
+  "months": [
+    {
+      "name": "JANUARY",
+      "notWorkingDays": 14,
+      "shortDays": 0,
+      "workingDays": 17,
+      "workingHours": 136
+    },
+    {
+      "name": "FEBRUARY",
+      "notWorkingDays": 10,
+      "shortDays": 1,
+      "workingDays": 18,
+      "workingHours": 143
+    },
+    {
+      "name": "MARCH",
+      "notWorkingDays": 9,
+      "shortDays": 1,
+      "workingDays": 22,
+      "workingHours": 175
+    },
+    {
+      "name": "APRIL",
+      "notWorkingDays": 10,
+      "shortDays": 0,
+      "workingDays": 20,
+      "workingHours": 160
+    },
+    {
+      "name": "MAY",
+      "notWorkingDays": 11,
+      "shortDays": 0,
+      "workingDays": 20,
+      "workingHours": 160
+    },
+    {
+      "name": "JUNE",
+      "notWorkingDays": 9,
+      "shortDays": 0,
+      "workingDays": 21,
+      "workingHours": 168
+    },
+    {
+      "name": "JULY",
+      "notWorkingDays": 10,
+      "shortDays": 0,
+      "workingDays": 21,
+      "workingHours": 168
+    },
+    {
+      "name": "AUGUST",
+      "notWorkingDays": 8,
+      "shortDays": 0,
+      "workingDays": 23,
+      "workingHours": 184
+    },
+    {
+      "name": "SEPTEMBER",
+      "notWorkingDays": 9,
+      "shortDays": 0,
+      "workingDays": 21,
+      "workingHours": 168
+    },
+    {
+      "name": "OCTOBER",
+      "notWorkingDays": 9,
+      "shortDays": 0,
+      "workingDays": 22,
+      "workingHours": 176
+    },
+    {
+      "name": "NOVEMBER",
+      "notWorkingDays": 9,
+      "shortDays": 1,
+      "workingDays": 21,
+      "workingHours": 167
+    },
+    {
+      "name": "DECEMBER",
+      "notWorkingDays": 10,
+      "shortDays": 0,
+      "workingDays": 21,
+      "workingHours": 168
+    }
+  ],
+  "year": 2023
+}

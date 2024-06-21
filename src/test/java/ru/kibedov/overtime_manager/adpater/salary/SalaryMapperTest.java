@@ -11,19 +11,19 @@ public class SalaryMapperTest extends AbstractMapperTest {
 
     @Test
     void salaryMapper_mapToSalary() {
-        CreateSalaryRequestDto dto = readFromFile("/SalaryMapperTest/mapToSalary/createSalaryRequestDto.json", CreateSalaryRequestDto.class);
+        CreateSalaryRequestDto dto = readFromFile("/SalaryMapperTest/MapToSalary/CreateSalaryRequestDto.json", CreateSalaryRequestDto.class);
 
         Salary salary = SalaryMapper.MAPPER.mapToSalary(dto);
 
-        assertEqualsToFile("/SalaryMapperTest/mapToSalary/salary.json", salary);
+        assertEqualsToFile("/SalaryMapperTest/MapToSalary/Salary.json", salary);
     }
 
     @Test
     void salaryMapper_mapToSalaryResponseDto() {
-        Salary salary = readFromFile("/SalaryMapperTest/mapToSalaryResponseDto/salary.json", Salary.class);
+        Salary salary = readFromFile("/SalaryMapperTest/MapToSalaryResponseDto/Salary.json", Salary.class);
 
         SalaryResponseDto responseDto = SalaryMapper.MAPPER.mapToSalaryResponseDto(salary);
 
-        assertEqualsToFile("/SalaryMapperTest/mapToSalaryResponseDto/salaryResponseDto.json", responseDto);
+        assertEqualsToFile("/SalaryMapperTest/MapToSalaryResponseDto/SalaryResponseDto.json", responseDto);
     }
 }

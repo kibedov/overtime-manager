@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Getter
@@ -18,4 +19,5 @@ public class Overtime {
     private Long id;
     private LocalDate date;
     private Byte duration;
+    private BigDecimal compensation;
 }
