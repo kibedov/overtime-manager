@@ -59,7 +59,7 @@ public class OvertimeServiceImpl implements OvertimeService {
                     if (list.size() != 1) {
                         throw new IllegalStateException();
                     }
-                    return list.get(0);
+                    return list.getFirst();
                 }
         );
     }
