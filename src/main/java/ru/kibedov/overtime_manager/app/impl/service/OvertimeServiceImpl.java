@@ -21,6 +21,8 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class OvertimeServiceImpl implements OvertimeService {
+    private static final BigDecimal COEF_FOR_WORK_ON_WEEKEND = BigDecimal.valueOf(2);
+
     private final OvertimeRepository overtimeRepository;
     private final ProductionCalendarService productionCalendarService;
     private final SalaryService salaryService;
@@ -41,7 +43,7 @@ public class OvertimeServiceImpl implements OvertimeService {
     }
 
     private BigDecimal calculateCompensation(Overtime overtime, BigDecimal salaryNet, BigDecimal workingHours) {
-        return salaryNet.divide(workingHours, 2, RoundingMode.HALF_UP).multiply(BigDecimal.valueOf(overtime.getDuration()));
+        return salaryNet.divide(workingHours, 2, RoundingMode.HALF_UP).multiply(BigDecimal.valueOf(overtime.getDuration())).multiply(COEF_FOR_WORK_ON_WEEKEND);
     }
 
     private MonthInfo getMonthInfo(Month month, ProductionCalendar productionCalendar) {
